@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: new-rs
+spec: 
+  template:
+    metadata:
+      name: new-rs-pod
+      labels:
+        env: prod
+    spec: 
+      containers:
+        - image: nginx:latest
+          name: testingnginx
+  replicas: 5
+  selector: 
+    matchLabels: 
+      env: prod 
